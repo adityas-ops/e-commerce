@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Box, Grid, Button, Hidden } from '@material-ui/core'
+import { Typography, Box, Grid, Button } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +44,7 @@ function Cover() {
             <Box style={{ display: 'flex', width: '100%', flexDirection: 'column', alignItems: 'center', background: '#F3F3F3', height: 'content-fit', paddingBottom: '50px', paddingTop: '50px' }}>
                 <Grid container >
 
-                    <Grid item xs={6} align="center" style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Grid item xs={12} sm={12} md={6} lg={6} align="center" style={{ display: 'flex', flexDirection: 'column' }}>
                         <Typography variant="h3" component="h2" style={{ fontWeight: 'bolder' }} className={classes.text}>
                             PROVIDING SERVICES AT YOUR HOME
                         </Typography>
@@ -58,7 +58,7 @@ function Cover() {
                             e.currentTarget.style.background = '#CA221B'
                         }} >Learn More</Button>
                     </Grid>
-                    <Grid item xs={6} align="center" sm={Hidden}>
+                    <Grid item xs={12} sm={12} md={6} lg={6} align="center">
                         <img src="img/cover.png" alt="" />
 
                     </Grid>

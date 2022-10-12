@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardMedia, CardContent, Typography, Avatar, Box } from '@material-ui/core'
-import { Label } from '@material-ui/icons';
+import { Card, CardMedia, CardContent, Typography, Box } from '@material-ui/core'
+
 
 const useStyles = makeStyles({
     media: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles({
 
 })
 
-function CardFeature(props) {
+function CardFeatures(props) {
 
 
 
@@ -44,7 +44,7 @@ function CardFeature(props) {
 
                     </Typography>
                     <Typography variant="h5" style={{ textAlign: 'center' }}>
-                        <span style={{ textDecoration: 'line-through' }}>{props.ogprice}</span>
+                        {/* <span style={{ textDecoration: 'line-through' }}>{props.ogprice}</span> */}
                         <span style={{ color: '#E2352D' }}> {props.price}</span>
                     </Typography>
                 </CardContent>
@@ -54,4 +54,4 @@ function CardFeature(props) {
 }
 
 
-export default CardFeature
+export default CardFeatures

@@ -15,8 +15,8 @@ const responsive = {
     },
     tablet: {
         breakpoint: { max: 1024, min: 600 },
-        items: 2,
-        slidesToSlide: 2 // optional, default to 1.
+        items: 1,
+        slidesToSlide: 1 // optional, default to 1.
     },
     mobile: {
         breakpoint: { max: 600, min: 0 },
@@ -72,13 +72,13 @@ function CardContent() {
                 responsive={responsive}
                 ssr={true} // means to render carousel on server-side.
                 infinite={true}
-                // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-                // autoPlaySpeed={1000}
+                autoPlay={true}
+                autoPlaySpeed={2500}
                 keyBoardControl={true}
-                // customTransition="all 0.5"
-                // transitionDuration={100}
+                customTransition="all 0.5s ease-in-out"
+                transitionDuration={500}
                 containerClass="carousel-container"
-                // removeArrowOnDeviceType={["tablet", "mobile"]}
+                removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
                 // deviceType={this.props.deviceType}
                 dotListClass="custom-dot-list-style"
                 itemClass="carousel-item-padding-40-px"

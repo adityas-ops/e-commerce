@@ -1,15 +1,13 @@
 import React from 'react'
 import "./App.css";
-import Main from './Cereusol/Main';
-import Cover from './cover/Cover';
-import Feature from './feature/Feature';
+import { Box } from '@material-ui/core'
+import Home from './home/Home';
 function App() {
   return (
     <>
-      <Cover />
-      <Main />
-      <Feature />
-
+      <Box>
+        <Home/>
+      </Box>
     </>
   )
 }
