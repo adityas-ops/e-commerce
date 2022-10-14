@@ -1,37 +1,47 @@
 import React from 'react'
-import { Card, CardHeader, CardMedia, CardContent, CardActions, Typography, Avatar } from '@material-ui/core'
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import MoreVertIcon from '@material-ui/icons/MoreVert';
+import { Card, CardMedia, Box, CardContent, Typography } from '@material-ui/core'
+// import FavoriteIcon from '@material-ui/icons/Favorite';
+// import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { makeStyles } from '@material-ui/core/styles';
-import CommentIcon from '@material-ui/icons/Comment';
-import ShareIcon from '@material-ui/icons/Share';
+// import CommentIcon from '@material-ui/icons/Comment';
+// import ShareIcon from '@material-ui/icons/Share';
 // import helper from './helper';
 
 const useStyles = makeStyles({
-    media: {
-        height: 0,
-        paddingTop: '70.25%', // 16:9
-
-    },
+    card: {
+        height: "400px",
+        width: "300px",
+        display: "flex",
+        flexDirection: "column",
+        margin: '15px',
+        justifyContent: 'center',
+        // background: '#F3F3F3',
+    }
 })
 
 
 function CareusolCard(props) {
-    const { media } = useStyles();
+    const { card } = useStyles();
     return (
         <>
-            <Card style={{ margin: "10px", height: '500px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: '#F3F3F3' }}>
+            <Card className={card} style={{}}>
 
-                <CardMedia
-                    image={props.url}
-                    title={props.name}
-                    className={media}
-                    style={{ objectFit: 'cover', marginTop: '100px' }}
-                />
+                <Box style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
-                <CardContent style={{ marginTop: '70px' }}>
-                    <Typography variant='h5' style={{ textAlign: 'center' }}>
+                    <img style={{ height: '250px', width: '200px', objectFit: 'cover' }} src={props.url} alt={props.name} />
+                </Box>
+
+                <CardContent>
+                    <Typography variant='h6' style={{ textAlign: 'center' }}>
                         {props.name}
+
+
+
+
+                    </Typography>
+                    <Typography variant="h5" style={{ textAlign: 'center' }}>
+                        <span style={{ textDecoration: 'line-through' }}>{props.ogprice}₹</span>
+                        <span style={{ color: '#E2352D' }}> {props.price}₹</span>
                     </Typography>
                 </CardContent>
             </Card>

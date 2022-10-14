@@ -58,7 +58,7 @@ function Cover() {
                             e.currentTarget.style.background = '#CA221B'
                         }} >Learn More</Button>
                     </Grid>
-                    <Grid item xs={12} sm={12} md={6} lg={6} align="center">
+                    <Grid item sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }} xs={12} sm={12} md={6} lg={6} align="center">
                         <img src="img/cover.png" alt="" />
 
                     </Grid>

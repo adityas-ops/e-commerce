@@ -1,98 +1,56 @@
 import React from 'react'
 import CardFeature from './CardFeature'
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-
-
-const responsive = {
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 2,
-        slidesToSlide: 2,
-
-        // optional, default to 1.
-
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 600 },
-        items: 1,
-        slidesToSlide: 1 // optional, default to 1.
-    },
-    mobile: {
-        breakpoint: { max: 600, min: 0 },
-        items: 1,
-        slidesToSlide: 1 // optional, default to 1.
-    }
-};
+// import Carousel from "react-multi-carousel";
+// import "react-multi-carousel/lib/styles.css";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Carousel from 'react-grid-carousel'
 
 function CardContent() {
-    const features = [
-        {
-            "name": "Face Mask",
-
-            "url": "products/mask.png",
-            "discount": "20% OFF",
-            "price": "400 ₹",
-            "ogprice": "500 ₹"
 
 
-        },
-        {
-            "name": "Body Spay",
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        setLoading(true);
+        axios({
+            method: 'get',
+            url: 'https://fakestoreapi.com/products',
 
-            "url": "products/axe.png",
-            "discount": "35% OFF",
-            "price": "500 ₹",
-            "ogprice": "650 ₹"
-        },
-        {
-            "name": "Stay Free",
+        })
+            .then((eve) => {
+                console.log(eve.data);
+                setData(eve.data);
 
-            "url": "products/stayfree.png",
-            "discount": "25% OFF",
-            "price": "250 ₹",
-            "ogprice": "300 ₹"
-        },
-        {
-            "name": "Mobiles",
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally((done) => {
+                setLoading(false);
+            });
+        setLoading(false);
+    }, []);
 
-            "url": "products/mobile.png",
-            "discount": "20% Extra",
-            "price": "520 ₹",
-            "ogprice": "600 ₹"
-        }
-    ]
+
 
     return (
         <>
-            <Carousel
-                swipeable={true}
-                draggable={true}
-                showDots={true}
-                responsive={responsive}
-                ssr={true} // means to render carousel on server-side.
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={2500}
-                keyBoardControl={true}
-                customTransition="all 0.5s ease-in-out"
-                transitionDuration={500}
-                containerClass="carousel-container"
-                removeArrowOnDeviceType={["desktop", "tablet", "mobile"]}
-                // deviceType={this.props.deviceType}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
-            >
+            {loading && <p>Loading...</p>}
+            <Carousel cols={2} rows={1} showDots autoplay={3000} arrowLeft loop dotColorActive='red' >
                 {
-                    features.map(items => (
-                        <CardFeature
-                            name={items.name}
-                            url={items.url}
-                            discount={items.discount}
-                            price={items.price}
-                            ogprice={items.ogprice}
-                        />
+                    data.map(items => (
+                        <Carousel.Item>
+                            <CardFeature
+                                key={items.id}
+                                id={items.id}
+                                name={items.title.slice(0, 50)}
+                                price={items.price}
+                                ogprice={items.price + 100}
+                                url={items.image} />
+                        </Carousel.Item>
                     ))
+
                 }
 
 

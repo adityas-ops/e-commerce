@@ -1,96 +1,54 @@
 import React from 'react'
 import CardFeatures from './CardFeatures'
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Carousel from 'react-grid-carousel'
 
-const responsive = {
-    desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 2,
-        slidesToSlide: 2,
-
-        // optional, default to 1.
-
-    },
-    tablet: {
-        breakpoint: { max: 1024, min: 600 },
-        items: 1,
-        slidesToSlide: 1 // optional, default to 1.
-    },
-    mobile: {
-        breakpoint: { max: 600, min: 0 },
-        items: 1,
-        slidesToSlide: 1 // optional, default to 1.
-    }
-};
 
 function CardContents() {
-    const features = [
-        {
-            "name": "Face Mask",
 
-            "url": "products/mask.png",
-            "discount": "20% OFF",
-            "price": "400 ₹",
-            "ogprice": "500 ₹"
+    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        setLoading(true);
+        axios({
+            method: 'get',
+            url: 'https://fakestoreapi.com/products',
+
+        })
+            .then((eve) => {
+                console.log(eve.data);
+                setData(eve.data);
+
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+            .finally((done) => {
+                setLoading(false);
+            });
+        setLoading(false);
+    }, []);
 
 
-        },
-        {
-            "name": "Body Spay",
-
-            "url": "products/axe.png",
-            "discount": "35% OFF",
-            "price": "500 ₹",
-            "ogprice": "650 ₹"
-        },
-        {
-            "name": "Stay Free",
-
-            "url": "products/stayfree.png",
-            "discount": "25% OFF",
-            "price": "250 ₹",
-            "ogprice": "300 ₹"
-        },
-        {
-            "name": "Mobiles",
-
-            "url": "products/mobile.png",
-            "discount": "20% Extra",
-            "price": "520 ₹",
-            "ogprice": "600 ₹"
-        }
-    ]
     return (
         <>
-            <Carousel
-                swipeable={true}
-                draggable={true}
-                showDots={true}
-                responsive={responsive}
-                ssr={true} // means to render carousel on server-side.
-                infinite={true}
-                autoPlay={true}
-                autoPlaySpeed={2000}
-                keyBoardControl={true}
-                customTransition="all 0.5s ease-in-out"
-                transitionDuration={500}
-                containerClass="carousel-container"
-                // removeArrowOnDeviceType={["tablet", "mobile"]}
-                // deviceType={this.props.deviceType}
-                dotListClass="custom-dot-list-style"
-                itemClass="carousel-item-padding-40-px"
-            >
+
+            {loading && <p>Loading...</p>}
+            <Carousel cols={2} gap={18} rows={1} showDots autoplay={3000} loop={true} arrowRight dotColorActive='red' >
                 {
-                    features.map(items => (
-                        <CardFeatures
-                            name={items.name}
-                            url={items.url}
-                            discount={items.discount}
-                            price={items.price}
-                            ogprice={items.ogprice}
-                        />
+                    data.map(items => (
+                        <Carousel.Item>
+                            < CardFeatures
+                                key={items.id}
+                                id={items.id}
+                                name={items.title.slice(0, 50)}
+                                price={items.price}
+                                ogprice={items.price + 100}
+                                url={items.image} />
+                        </Carousel.Item>
                     ))
+
                 }
 
 

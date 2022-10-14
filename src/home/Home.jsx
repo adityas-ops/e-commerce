@@ -5,12 +5,13 @@ import Feature from './feature/Feature';
 import { Box } from '@material-ui/core'
 import TopSelling from './top_selling/Top_selling';
 import Guildlines from './guidlines/Guildlines';
-import Navigation from './Navigation/Navigation';
+// import Guildlines from './guidlines/Guildlines';
+// import Navigation from './Navigation/Navigation';
 function Home() {
     return (
         <>
             <Box>
-                <Navigation />
+                {/* <Navigation /> */}
                 <Cover />
                 <Main />
                 <Feature />

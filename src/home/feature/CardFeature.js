@@ -5,17 +5,18 @@ import { Card, CardMedia, CardContent, Typography, Box } from '@material-ui/core
 
 const useStyles = makeStyles({
     media: {
-        height: 0,
-        paddingTop: '70.25%', // 16:9
+        // height: 0,
+        // paddingTop: '100%', // 16:9
 
     },
     card: {
         height: "500px",
+        // width: "250px",
         display: "flex",
         flexDirection: "column",
         margin: '15px',
         justifyContent: 'center',
-        background: '#F3F3F3',
+        // background: '#F3F3F3',
     }
 
 })
@@ -23,29 +24,25 @@ const useStyles = makeStyles({
 function CardFeature(props) {
 
 
+    // const str = props.name;
+    const { card } = useStyles();
 
-    const { media, card } = useStyles();
     return (
         <>
             <Card className={card}>
-                <Box style={{ width: '100%', color: "white", display: "flex", justifyContent: 'flex-end', alignItems: 'self-end', textAlign: 'center' }}>
-                    <Typography style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '50%', height: '30px', textAlign: 'center', marginTop: '15px', background: '#E2352D', color: 'white' }} >{props.discount}</Typography>
+
+                <Box style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+
+                    <img style={{ height: '250px', width: '200px', objectFit: 'cover' }} src={props.url} alt={props.name} />
                 </Box>
-                <CardMedia
-                    image={props.url}
-                    title={props.name}
-                    className={media}
-                    style={{ objectFit: 'cover', marginTop: '100px' }}
-                />
 
-                <CardContent style={{ marginTop: '70px' }}>
-                    <Typography variant='h5' style={{ textAlign: 'center' }}>
+                <CardContent>
+                    <Typography variant='h6' style={{ textAlign: 'center' }}>
                         {props.name}
-
                     </Typography>
                     <Typography variant="h5" style={{ textAlign: 'center' }}>
-                        <span style={{ textDecoration: 'line-through' }}>{props.ogprice}</span>
-                        <span style={{ color: '#E2352D' }}> {props.price}</span>
+                        <span style={{ textDecoration: 'line-through' }}>{props.ogprice}₹</span>
+                        <span style={{ color: '#E2352D' }}> {props.price}₹</span>
                     </Typography>
                 </CardContent>
             </Card>
