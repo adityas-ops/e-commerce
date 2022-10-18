@@ -2,7 +2,8 @@ import { Container, Grid, Typography } from '@material-ui/core';
 import CareusolCard from './CareusolCard';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import Carousel from 'react-grid-carousel'
+import Carousel from 'react-grid-carousel';
+
 
 
 
@@ -32,7 +33,9 @@ function Main() {
     }, []);
 
 
+
     return (
+
         <>
             <Container justifyContent='center' style={{ width: '100%', height: '100vh', marginTop: '100px' }}>
                 <Grid container>
@@ -46,20 +49,28 @@ function Main() {
                         </Typography>
 
                     </Grid>
-                    <Grid justifyContent='center' item xs={12}>
+                    <Grid justifyContent='center' item xs={12} md={12} lg={12}>
                         {loading && <p>Loading...</p>}
-                        <Carousel cols={3} gap={18} rows={1} showDots autoplay={3000} loop={true} dotColorActive='red' >
+                        <Carousel style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }} cols={3} rows={1} showDots autoplay={3000} loop={true} dotColorActive='red' >
                             {
                                 data.map(items => (
+
+
                                     <Carousel.Item>
+
                                         <CareusolCard
                                             key={items.id}
                                             id={items.id}
                                             name={items.title.slice(0, 50)}
                                             price={items.price}
                                             ogprice={items.price + 100}
-                                            url={items.image} />
+                                            url={items.image}
+                                            style={{ margin: '50px' }}
+                                        />
+
+
                                     </Carousel.Item>
+
                                 ))
 
                             }
