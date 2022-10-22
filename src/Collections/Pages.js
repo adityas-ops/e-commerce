@@ -1,11 +1,12 @@
 import React from 'react'
-import { Container, Grid, Typography, Box } from '@material-ui/core';
+import { Container, Grid, Box } from '@material-ui/core';
 import CareusolCard from '../home/Cereusol/CareusolCard'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
 import Pagination from '@mui/material/Pagination';
-function Pages() {
+function Pages(props) {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -16,7 +17,7 @@ function Pages() {
 
         })
             .then((eve) => {
-                console.log(eve.data);
+                // console.log(eve.data);
                 setData(eve.data);
 
             })
@@ -39,7 +40,13 @@ function Pages() {
     const items = data.slice(begin, end).map((eve, index) => {
         return (
             <Grid key={index} item xs={6} md={4} lg={4}>
-                <CareusolCard name={eve.title} url={eve.image} ogprice={eve.price} price={eve.price - 100} />
+                <CareusolCard
+                    name={eve.title}
+                    url={eve.image}
+                    ogprice={eve.price}
+                    price={eve.price - 100}
+                    id={eve.id}
+                />
             </Grid>
         );
     }
@@ -67,7 +74,7 @@ function Pages() {
                                 shape="rounded"
                                 color='warning'
                                 size='large'
-                                 onChange={(e) => { paginate(e.target.textContent) }}
+                                onChange={(e) => { paginate(e.target.textContent) }}
                             />
                         </Box>
                     </Grid>

@@ -20,6 +20,7 @@ import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Divider, Grid } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -120,7 +121,9 @@ export default function Navigation() {
                 >
                     <ShoppingCartIcon />
                 </IconButton>
-                <p>Shop</p>
+                <NavLink to="/Collections" style={{ color: 'black' }}>
+                    <p>Shop</p>
+                </NavLink>
             </MenuItem>
             <MenuItem >
                 <IconButton
@@ -217,7 +220,9 @@ export default function Navigation() {
                         <Box sx={{ flexGrow: 4, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
 
                             <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
-                                Shop
+                                <NavLink to="/Collections" style={{ textDecoration: 'none', color: 'gray' }}>
+                                    Shop
+                                </NavLink>
                             </Typography>
                             <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
                                 Essentials

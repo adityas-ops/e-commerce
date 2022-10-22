@@ -7,7 +7,8 @@ import Navigation from './home/Navigation/Navigation';
 import Footer from './Footer';
 import Collections from './Collections/Collections';
 import Show from './Show';
-import { BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
+import Signin from './signIn/Signin';
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { useLayoutEffect } from 'react'
 
 const Wrapper = ({ children }) => {
@@ -30,6 +31,8 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/Collections" element={<Collections />} />
             <Route path="/Show/:urlId" element={<Show />} />
+            <Route path="/signIn" element={<Signin />} />
+            <Route path="*" element={<h1>404</h1>} />
 
           </Routes>
           <Footer />

@@ -7,6 +7,7 @@ import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from '@material-ui/core';
+import Main from './home/Cereusol/Main';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -111,6 +112,11 @@ function ShowCard({ data, id }) {
                                     </AccordionDetails>
                                 </Accordion>
                             </Box>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={12}>
+                        <Box style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center', marginTop: '10px' }}>
+                            <Main heading1="You May also " heading2="Like this" />
                         </Box>
                     </Grid>
                 </Grid>

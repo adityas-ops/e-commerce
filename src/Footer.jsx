@@ -78,23 +78,24 @@ function Footer() {
                     </Grid>
                 </Box>
 
-                <Grid xs={12} sm={12} md={12} lg={12} style={{ width: '100%', display: 'flex', justifyContent: 'flex-end' }}  >
+                <Grid xs={12} sm={12} md={12} lg={12} style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}  >
                     <TextField label="Enter Your Email" style={{ backgroundColor: '#ffff', color: 'grey', margin: '50px', width: '22.2%' }} InputProps={{ endAdornment: <EmailIcon /> }} />
-                </Grid>
-                <Grid xs={12} sm={12} md={12} lg={12} style={{ width: '100%', display: 'flex', justifyContent: 'flex-end', marginRight: '340px' }} >
-                    {/* <Button variant="contained" style={{ backgroundColor: '#e2352d', color: '#ffff', fontWeight: 'bolder', height: '35px', borderRadius: '50%' }}>S</Button> */}
-                    <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
-                        <Twitter style={{ borderRadius: '50%', fontSize: '25px' }} />
-                    </Fab>
-                    <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
-                        <LinkedIn style={{ borderRadius: '50%', fontSize: '25px' }} />
-                    </Fab>
-                    <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
-                        <Facebook style={{ borderRadius: '50%', fontSize: '25px' }} />
-                    </Fab>
-                    <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
-                        <Instagram style={{ borderRadius: '50%', fontSize: '25px' }} />
-                    </Fab>
+
+                    <Box xs={12} sm={12} md={12} lg={12} style={{ display: 'flex', marginRight: '180px' }} >
+                        {/* <Button variant="contained" style={{ backgroundColor: '#e2352d', color: '#ffff', fontWeight: 'bolder', height: '35px', borderRadius: '50%' }}>S</Button> */}
+                        <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
+                            <Twitter style={{ borderRadius: '50%', fontSize: '25px' }} />
+                        </Fab>
+                        <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
+                            <LinkedIn style={{ borderRadius: '50%', fontSize: '25px' }} />
+                        </Fab>
+                        <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
+                            <Facebook style={{ borderRadius: '50%', fontSize: '25px' }} />
+                        </Fab>
+                        <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
+                            <Instagram style={{ borderRadius: '50%', fontSize: '25px' }} />
+                        </Fab>
+                    </Box>
                 </Grid>
 
                 <Typography align='center' variant="h6" style={{ bottom: '0', color: '#424242', padding: '10px', width: '100%', marginTop: '120px', marginBottom: '120px' }}>

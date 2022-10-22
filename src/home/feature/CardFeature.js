@@ -1,7 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import { Card, CardMedia, CardContent, Typography, Box } from '@material-ui/core'
-
+import { useState } from 'react';
 
 const useStyles = makeStyles({
     media: {
@@ -26,10 +26,19 @@ function CardFeature(props) {
 
     // const str = props.name;
     const { card } = useStyles();
+    const [state, setState] = useState({
+        raised: false,
+        shadow: 1,
+    })
 
     return (
         <>
-            <Card className={card}>
+            <Card
+                onMouseOver={() => setState({ raised: true, shadow: 3 })}
+                onMouseOut={() => setState({ raised: false, shadow: 1 })}
+                raised={state.raised} zDepth={state.shadow}
+
+                className={card}>
 
                 <Box style={{ height: '100%', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 

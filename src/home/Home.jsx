@@ -13,7 +13,7 @@ function Home() {
             <Box>
                 {/* <Navigation /> */}
                 <Cover />
-                <Main />
+                <Main heading1="New" heading2="Products" />
                 <Feature />
                 <Box style={{ marginTop: '100px', marginBottom: '100px' }} >
 

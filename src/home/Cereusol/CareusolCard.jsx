@@ -6,9 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 // import CommentIcon from '@material-ui/icons/Comment';
 // import ShareIcon from '@material-ui/icons/Share';
 // import helper from './helper';
-import { Link, NavLink } from 'react-router-dom';
-import { useState } from "react";
-import Show from '../../Show';
+import { NavLink } from 'react-router-dom';
+import { useState } from 'react';
 
 const useStyles = makeStyles({
     card: {
@@ -17,6 +16,7 @@ const useStyles = makeStyles({
         display: "flex",
         flexDirection: "column",
         margin: '15px',
+
         justifyContent: 'center',
 
     }
@@ -27,11 +27,20 @@ const useStyles = makeStyles({
 
 function CareusolCard(props) {
     const { card } = useStyles();
+    const [state, setState] = useState({
+        raised: false,
+        shadow: 1,
+    })
     return (
         <>
 
-            <NavLink to={`/Show/${props.id}`}>
-                <Card className={card} style={{}}>
+            <NavLink style={{ textDecoration: 'none' }} to={`/Show/${props.id}`}>
+                <Card
+                    onMouseOver={() => setState({ raised: true, shadow: 3 })}
+                    onMouseOut={() => setState({ raised: false, shadow: 1 })}
+                    raised={state.raised} zDepth={state.shadow}
+
+                    className={card} style={{ textDecoration: 'none' }}>
 
 
                     <CardMedia

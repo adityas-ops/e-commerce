@@ -8,7 +8,7 @@ import Carousel from 'react-grid-carousel';
 
 
 
-function Main() {
+function Main(props) {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
     useEffect(() => {
@@ -45,13 +45,13 @@ function Main() {
                         style={{ display: 'grid', placeItems: 'center' }}
                     >
                         <Typography variant="h4" style={{ fontWeight: 'bolder', color: 'red', marginBottom: '30px' }}>
-                            NEW <span style={{ color: 'darkblue' }}>PRODUCTS</span>
+                            {props.heading1} <span style={{ color: 'darkblue' }}>{props.heading2}</span>
                         </Typography>
 
                     </Grid>
                     <Grid justifyContent='center' item xs={12} md={12} lg={12}>
                         {loading && <p>Loading...</p>}
-                        <Carousel style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }} cols={3} rows={1} showDots autoplay={3000} loop={true} dotColorActive='red' >
+                        <Carousel style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', }} cols={3} rows={1} showDots autoplay={3000} loop={true} dotColorActive='red' >
                             {
                                 data.map(items => (
 
