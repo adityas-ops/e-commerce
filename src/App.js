@@ -10,6 +10,9 @@ import Show from './Show';
 import Signin from './signIn/Signin';
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useLayoutEffect } from 'react'
+// import Signup from './signUp/Signup';
+import Signup from './signIn/Signup';
+import Products from './Products/Products';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -32,6 +35,8 @@ function App() {
             <Route path="/Collections" element={<Collections />} />
             <Route path="/Show/:urlId" element={<Show />} />
             <Route path="/signIn" element={<Signin />} />
+            <Route path="/signUp" element={<Signup />} />
+            <Route path="/Products" element={<Products />} />
             <Route path="*" element={<h1>404</h1>} />
 
           </Routes>

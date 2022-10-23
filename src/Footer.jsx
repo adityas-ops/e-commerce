@@ -44,7 +44,9 @@ function Footer() {
                                 </ListItem>
                                 <ListItem>
                                     <Typography variant="h6">
-                                        products
+                                        <NavLink to="/products" style={{ color: 'grey', textDecoration: 'none', width: '40%' }}>
+                                            products
+                                        </NavLink>
                                     </Typography>
                                 </ListItem>
                             </List>
@@ -68,8 +70,8 @@ function Footer() {
                                 </ListItem>
                             </List>
                         </Grid>
-                        <Grid item xs={6} sm={6} md={3} lg={3} style={{ display: 'flex', alignItems: 'flex-start', textAlign: 'center', justifyContent: 'center' }}>
-                            <Typography variant="h6">
+                        <Grid item xs={6} sm={6} md={3} lg={3} style={{ display: 'flex', alignItems: 'flex-start', textAlign: 'center', justifyContent: 'flex-start' }}>
+                            <Typography style={{ marginRight: '5px' }} variant="h6">
                                 Be the first to know about our biggest and best
                                 sales. We'll never send more than one email a
                                 month
@@ -98,7 +100,7 @@ function Footer() {
                     </Box>
                 </Grid>
 
-                <Typography align='center' variant="h6" style={{ bottom: '0', color: '#424242', padding: '10px', width: '100%', marginTop: '120px', marginBottom: '120px' }}>
+                <Typography align='center' variant="h6" style={{ bottom: '0', color: '#424242', width: '100%', marginTop: '120px', marginBottom: '70px' }}>
                     All rights Reserved by MaccEssentials
                 </Typography>
 

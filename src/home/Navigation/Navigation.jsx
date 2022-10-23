@@ -224,9 +224,14 @@ export default function Navigation() {
                                     Shop
                                 </NavLink>
                             </Typography>
+
+
                             <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
-                                Essentials
+                                <NavLink to="/products" style={{ textDecoration: 'none', color: 'gray' }}>
+                                    Essentials
+                                </NavLink>
                             </Typography>
+
                             <Box>
 
                                 <Typography align='center' style={{ fontFamily: "Monotype Corsiva", fontSize: '3.8rem', color: '#e2352d' }}>
