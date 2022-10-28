@@ -13,12 +13,10 @@ function Signin() {
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
                 <Grid container spacing={2} style={{ width: '100%', marginTop: '30px' }}>
                     <Grid item xs={12} md={12} lg={12} style={{}}>
-                        <Typography variant="h4" style={{ fontWeight: 'bolder', color: '#3A408C', marginBottom: '5px' }}>
-                            <span style={{ color: '#e2352d' }}>Sign</span> In
+                        <Typography variant="h4" style={{ fontWeight: 'bolder', color: 'gray', marginBottom: '5px' }}>
+                            Sign In
                         </Typography>
-                        <Typography variant="h6" style={{ color: 'grey', textAlign: 'center' }}>
-                            Sign in to continue to Macc Essentials
-                        </Typography>
+
                     </Grid>
                     <Grid item xs={12} md={12} lg={12} style={{ width: '100%', display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', flexDirection: 'column' }}>
                         <Box style={{ marginTop: '25px', textAlign: 'center' }}>

@@ -13,6 +13,8 @@ import { useLayoutEffect } from 'react'
 // import Signup from './signUp/Signup';
 import Signup from './signIn/Signup';
 import Products from './Products/Products';
+import Checkout from './Checkout';
+import Contact from './home/contact/Contact';
 
 const Wrapper = ({ children }) => {
   const location = useLocation();
@@ -37,6 +39,8 @@ function App() {
             <Route path="/signIn" element={<Signin />} />
             <Route path="/signUp" element={<Signup />} />
             <Route path="/Products" element={<Products />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/Checkout" element={<Checkout />} />
             <Route path="*" element={<h1>404</h1>} />
 
           </Routes>

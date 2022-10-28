@@ -8,6 +8,7 @@ import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from '@material-ui/core';
 import Main from './home/Cereusol/Main';
+import { NavLink } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -55,7 +56,9 @@ function ShowCard({ data, id }) {
                                 <Button variant="outlined" style={{ margin: '5px' }} >Gold</Button>
                                 <Button variant="outlined" style={{ margin: '5px' }} >Appolo</Button>
                             </Box>
-                            <Button style={{ backgroundColor: '#004197', color: 'white', fontWeight: 'bolder', width: '100%', height: '50px', fontSize: '20px' }}>ADD TO CART</Button>
+                            <NavLink to="/Checkout" style={{ textDecoration: 'none' }}>
+                                <Button style={{ backgroundColor: '#004197', color: 'white', fontWeight: 'bolder', width: '100%', height: '50px', fontSize: '20px' }}>Buy Now</Button>
+                            </NavLink>
                             <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center', marginTop: '5px' }}>
                                 <p style={{ fontWeight: 'lighter', color: 'grey', textAlign: 'start' }}>{data.filter((item) => item.id == id).map((item) => item.description)}</p>
                             </Box>

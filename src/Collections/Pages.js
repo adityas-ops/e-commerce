@@ -43,8 +43,8 @@ function Pages(props) {
                 <CareusolCard
                     name={eve.title}
                     url={eve.image}
-                    ogprice={eve.price}
-                    price={eve.price - 100}
+                    ogprice={eve.price.toFixed(1)}
+                    price={(eve.price).toFixed(2)}
                     id={eve.id}
                 />
             </Grid>

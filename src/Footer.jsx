@@ -2,11 +2,7 @@
 import React from 'react'
 import { Typography, Box, Grid, List, ListItem, TextField, Fab } from '@material-ui/core'
 import { NavLink } from 'react-router-dom';
-import EmailIcon from '@mui/icons-material/EmailOutlined';
-import Twitter from '@mui/icons-material/Twitter';
-import LinkedIn from '@mui/icons-material/LinkedIn';
-import Facebook from '@mui/icons-material/Facebook';
-import Instagram from '@mui/icons-material/Instagram';
+
 
 
 function Footer() {
@@ -60,7 +56,9 @@ function Footer() {
                                 </ListItem>
                                 <ListItem>
                                     <Typography variant="h6">
-                                        Contact
+                                        <NavLink to="/contact" style={{ color: 'grey', textDecoration: 'none', width: '40%' }}>
+                                            Contact
+                                        </NavLink>
                                     </Typography>
                                 </ListItem>
                                 <ListItem>
@@ -80,25 +78,7 @@ function Footer() {
                     </Grid>
                 </Box>
 
-                <Grid xs={12} sm={12} md={12} lg={12} style={{ width: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-end' }}  >
-                    <TextField label="Enter Your Email" style={{ backgroundColor: '#ffff', color: 'grey', margin: '50px', width: '22.2%' }} InputProps={{ endAdornment: <EmailIcon /> }} />
 
-                    <Box xs={12} sm={12} md={12} lg={12} style={{ display: 'flex', marginRight: '180px' }} >
-                        {/* <Button variant="contained" style={{ backgroundColor: '#e2352d', color: '#ffff', fontWeight: 'bolder', height: '35px', borderRadius: '50%' }}>S</Button> */}
-                        <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
-                            <Twitter style={{ borderRadius: '50%', fontSize: '25px' }} />
-                        </Fab>
-                        <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
-                            <LinkedIn style={{ borderRadius: '50%', fontSize: '25px' }} />
-                        </Fab>
-                        <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
-                            <Facebook style={{ borderRadius: '50%', fontSize: '25px' }} />
-                        </Fab>
-                        <Fab style={{ color: '#ffff', backgroundColor: '#3A408C', height: '40px', width: '40px', margin: '5px' }} variant="circular">
-                            <Instagram style={{ borderRadius: '50%', fontSize: '25px' }} />
-                        </Fab>
-                    </Box>
-                </Grid>
 
                 <Typography align='center' variant="h6" style={{ bottom: '0', color: '#424242', width: '100%', marginTop: '120px', marginBottom: '70px' }}>
                     All rights Reserved by MaccEssentials
