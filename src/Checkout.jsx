@@ -43,7 +43,7 @@ function Checkout() {
                             <Box style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center', marginTop: '100px' }}>
 
                                 <Button onClick={() => navigate(-1)} ><ChevronLeftOutlinedIcon />  Go Back To Product</Button>
-                                <Button variant="contained" style={{ backgroundColor: 'red', color: 'white', width: '40%', height: '50px', fontSize: '18px' }}  >Go Back To Product</Button>
+                                <Button variant="contained" style={{ backgroundColor: 'red', color: 'white', width: '40%', height: '50px', fontSize: '18px' }}  >Save & Continue</Button>
                             </Box>
 
 
