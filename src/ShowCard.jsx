@@ -9,7 +9,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from '@material-ui/core';
 import Main from './home/Cereusol/Main';
 import { NavLink } from 'react-router-dom';
-
+import { addCard } from './store/CardSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProductss } from './store/productSlice';
+import { useEffect } from 'react';
 const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
@@ -24,7 +27,18 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function ShowCard({ data, id }) {
+function ShowCard({ id }) {
+    const { data } = useSelector(state => state.products)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchProductss());
+        console.log("adita=ya gandu", id);
+    }, []);
+
+    function handleAdd(data) {
+        dispatch(addCard(data.filter((e) => e.id == id)[0]))
+    }
+
     const classes = useStyles();
     return (
         <>
@@ -56,8 +70,8 @@ function ShowCard({ data, id }) {
                                 <Button variant="outlined" style={{ margin: '5px' }} >Gold</Button>
                                 <Button variant="outlined" style={{ margin: '5px' }} >Appolo</Button>
                             </Box>
-                            <NavLink to="/Checkout" style={{ textDecoration: 'none' }}>
-                                <Button style={{ backgroundColor: '#004197', color: 'white', fontWeight: 'bolder', width: '100%', height: '50px', fontSize: '20px' }}>Buy Now</Button>
+                            <NavLink to="/Cart" style={{ textDecoration: 'none' }}>
+                                <Button onClick={() => handleAdd(data)} style={{ backgroundColor: '#004197', color: 'white', fontWeight: 'bolder', width: '100%', height: '50px', fontSize: '20px' }}>Add To Cart</Button>
                             </NavLink>
                             <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center', marginTop: '5px' }}>
                                 <p style={{ fontWeight: 'lighter', color: 'grey', textAlign: 'start' }}>{data.filter((item) => item.id == id).map((item) => item.description)}</p>

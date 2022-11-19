@@ -21,7 +21,7 @@ import NotificationsIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import { Divider, Grid } from '@material-ui/core';
 import { NavLink } from 'react-router-dom';
-
+import { useSelector } from 'react-redux'
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -50,6 +50,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 
 
 export default function Navigation() {
+    const totalQuantity = useSelector(state => state.cards.length)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
@@ -158,6 +159,7 @@ export default function Navigation() {
                 </IconButton>
                 <p>About us</p>
             </MenuItem>
+
             <MenuItem>
                 <IconButton size="large" aria-label="show 4 new mails" color="inherit">
                     <Badge badgeContent={4} color="error">
@@ -166,6 +168,7 @@ export default function Navigation() {
                 </IconButton>
                 <p>Messages</p>
             </MenuItem>
+
             <MenuItem>
                 <IconButton
                     size="large"
@@ -271,11 +274,13 @@ export default function Navigation() {
                                     <NotificationsIcon />
                                 </Badge>
                             </IconButton>
-                            <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                                <Badge badgeContent={4} color="error">
-                                    <LocalMallIcon />
-                                </Badge>
-                            </IconButton>
+                            <NavLink to="/cart" style={{ textDecoration: 'none', color: 'grey' }}>
+                                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                                    <Badge badgeContent={totalQuantity} color="error">
+                                        <LocalMallIcon />
+                                    </Badge>
+                                </IconButton>
+                            </NavLink>
                         </Box>
                         <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
                             <IconButton

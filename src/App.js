@@ -15,7 +15,9 @@ import Signup from './signIn/Signup';
 import Products from './Products/Products';
 import Checkout from './Checkout';
 import Contact from './home/contact/Contact';
-
+import Cart from './Cart';
+import { Provider } from 'react-redux'
+import store from './store/store';
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
@@ -27,25 +29,29 @@ function App() {
   return (
     <>
       <Box>
-        <Navigation />
+        <Provider store={store}>
 
-        <Wrapper>
-          <Routes>
+          <Navigation />
+
+          <Wrapper>
+            <Routes>
 
 
-            <Route path="/" element={<Home />} />
-            <Route path="/Collections" element={<Collections />} />
-            <Route path="/Show/:urlId" element={<Show />} />
-            <Route path="/signIn" element={<Signin />} />
-            <Route path="/signUp" element={<Signup />} />
-            <Route path="/Products" element={<Products />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/Checkout" element={<Checkout />} />
-            <Route path="*" element={<h1>404</h1>} />
+              <Route path="/" element={<Home />} />
+              <Route path="/Collections" element={<Collections />} />
+              <Route path="/Show/:urlId" element={<Show />} />
+              <Route path="/signIn" element={<Signin />} />
+              <Route path="/signUp" element={<Signup />} />
+              <Route path="/Products" element={<Products />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/Cart" element={<Cart />} />
+              <Route path="/Checkout" element={<Checkout />} />
+              <Route path="*" element={<h1>404</h1>} />
 
-          </Routes>
-          <Footer />
-        </Wrapper>
+            </Routes>
+            <Footer />
+          </Wrapper>
+        </Provider>
 
 
       </Box>

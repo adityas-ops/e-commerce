@@ -1,42 +1,29 @@
 import React from 'react'
 import CardFeature from './CardFeature'
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import Carousel from 'react-grid-carousel'
+import { useEffect } from 'react';
+import Carousel from 'react-grid-carousel';
+import { STATUSES } from '../../store/productSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProductss } from '../../store/productSlice';
 
 function CardContent() {
 
 
-    const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([]);
+    const { data, status } = useSelector(state => state.products)
+    const dispatch = useDispatch()
     useEffect(() => {
-        setLoading(true);
-        axios({
-            method: 'get',
-            url: 'https://fakestoreapi.com/products',
-
-        })
-            .then((eve) => {
-                console.log(eve.data);
-                setData(eve.data);
-
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally((done) => {
-                setLoading(false);
-            });
-        setLoading(false);
+        dispatch(fetchProductss());
     }, []);
 
+
+    if (status === STATUSES.LOADING) {
+        return <h1>Loading...</h1>
+    }
 
 
     return (
         <>
-            {loading && <p>Loading...</p>}
+
             <Carousel cols={2} rows={1} showDots autoplay={3000} arrowLeft loop dotColorActive='red' >
                 {
                     data.map(items => (

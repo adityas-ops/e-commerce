@@ -1,39 +1,23 @@
 import { Container, Grid, Typography } from '@material-ui/core';
 import CareusolCard from './CareusolCard';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
 import Carousel from 'react-grid-carousel';
-
-
-
-
+import { STATUSES } from '../../store/productSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchProductss } from '../../store/productSlice';
 
 function Main(props) {
-    const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([]);
+
+    const { data, status } = useSelector(state => state.products)
+    const dispatch = useDispatch()
     useEffect(() => {
-        setLoading(true);
-        axios({
-            method: 'get',
-            url: 'https://fakestoreapi.com/products',
-
-        })
-            .then((eve) => {
-                console.log(eve.data);
-                setData(eve.data);
-
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally((done) => {
-                setLoading(false);
-            });
-        setLoading(false);
+        dispatch(fetchProductss());
     }, []);
 
 
-
+    if (status === STATUSES.LOADING) {
+        return <h1>Loading...</h1>
+    }
     return (
 
         <>
@@ -50,7 +34,7 @@ function Main(props) {
 
                     </Grid>
                     <Grid justifyContent='center' item xs={12} md={12} lg={12}>
-                        {loading && <p>Loading...</p>}
+
                         <Carousel style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', textAlign: 'center', }} cols={3} rows={1} showDots autoplay={3000} loop={true} dotColorActive='red' >
                             {
                                 data.map(items => (
