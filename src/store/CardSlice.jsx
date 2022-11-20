@@ -7,6 +7,9 @@ const cardSlice = createSlice({
     reducers: {
         addCard(state, action) {
             state.push(action.payload)
+            // total price of all cards
+            state.reduce((acc, card) => acc + card.price, 0)
+
         },
         removeCard(state, action) {
             return state.filter((card) => card.id !== action.payload);

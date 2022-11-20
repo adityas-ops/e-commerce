@@ -2,34 +2,19 @@ import React from 'react'
 import { Container, Grid, Box } from '@material-ui/core';
 import CareusolCard from '../home/Cereusol/CareusolCard'
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-
+import { STATUSES } from '../store/productSlice'
+import { useDispatch, useSelector } from 'react-redux'
+// import { fetchProductss } from './store/productSlice';
+import { fetchProductss } from '../store/productSlice';
 
 import Pagination from '@mui/material/Pagination';
 function Pages(props) {
-    const [loading, setLoading] = useState(false);
-    const [data, setData] = useState([]);
+
+    const { data, status } = useSelector(state => state.products)
+    const dispatch = useDispatch()
     useEffect(() => {
-        setLoading(true);
-        axios({
-            method: 'get',
-            url: 'https://fakestoreapi.com/products',
-
-        })
-            .then((eve) => {
-                // console.log(eve.data);
-                setData(eve.data);
-
-            })
-            .catch((err) => {
-                console.log(err);
-            })
-            .finally((done) => {
-                setLoading(false);
-            });
-        setLoading(false);
+        dispatch(fetchProductss());
     }, []);
-
     const pages = Math.ceil(data.length / 6); ///calsulates how many pages are present
     const [currentpage, setCurrentpage] = useState(1);//fetches current page
 
@@ -52,6 +37,9 @@ function Pages(props) {
     }
 
     );
+    if (status === STATUSES.LOADING) {
+        return <h1>Loading...</h1>
+    }
 
     return (
         <>
