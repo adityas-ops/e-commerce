@@ -199,105 +199,107 @@ export default function Navigation() {
 
     return (
         <>
-            <Box sx={{ flexGrow: 1, backgroundColor: 'transparent', display: [] }}>
-                <Grid position="static" style={{ width: '100%', display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end' }} >
-                    <p style={{ marginRight: '25px', textDecoration: 'none' }}>
-                        <a style={{ textDecoration: 'none', color: 'grey' }} href="/">Return</a>
-                        <a style={{ textDecoration: 'none', color: 'grey', marginLeft: '15px', marginRight: '15px' }} href="/help">Help</a>
-                        <a style={{ textDecoration: 'none', color: 'grey' }} href="/signIn">Sign-In</a>
-                    </p>
-                </Grid>
+            <Box style={{}}>
+                <Box sx={{ flexGrow: 1, backgroundColor: 'transparent' }}>
+                    <Grid position="static" style={{ width: '100%', display: 'flex', alignItems: 'flex-end', justifyContent: 'flex-end' }} >
+                        <p style={{ marginRight: '25px', textDecoration: 'none' }}>
+                            <a style={{ textDecoration: 'none', color: 'grey' }} href="/">Return</a>
+                            <a style={{ textDecoration: 'none', color: 'grey', marginLeft: '15px', marginRight: '15px' }} href="/help">Help</a>
+                            <a style={{ textDecoration: 'none', color: 'grey' }} href="/signIn">Sign-In</a>
+                        </p>
+                    </Grid>
 
-                <Divider />
-            </Box>
-            <Box sx={{ flexGrow: 1, background: 'transparent' }}>
-                <AppBar position="static" style={{ backgroundColor: 'transparent', color: 'grey' }}>
-                    <Toolbar>
+                    <Divider />
+                </Box>
+                <Box sx={{ flexGrow: 1, background: 'transparent' }}>
+                    <AppBar position="static" style={{ backgroundColor: 'transparent', color: 'grey' }}>
+                        <Toolbar>
 
-                        <Search sx={{ flexGrow: 1 }}>
-                            <SearchIconWrapper>
-                                <SearchIcon fontSize='large' style={{ fontSize: '24px' }} />
-                            </SearchIconWrapper>
+                            <Search sx={{ flexGrow: 1 }}>
+                                <SearchIconWrapper>
+                                    <SearchIcon fontSize='large' style={{ fontSize: '24px' }} />
+                                </SearchIconWrapper>
 
-                        </Search>
-                        <Box sx={{ flexGrow: 4, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                            </Search>
+                            <Box sx={{ flexGrow: 4, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
 
-                            <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
-                                <NavLink to="/Collections" style={{ textDecoration: 'none', color: 'gray' }}>
-                                    Shop
-                                </NavLink>
-                            </Typography>
-
-
-                            <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
-                                <NavLink to="/products" style={{ textDecoration: 'none', color: 'gray' }}>
-                                    Essentials
-                                </NavLink>
-                            </Typography>
-
-                            <Box>
-
-                                <Typography align='center' style={{ fontFamily: "Monotype Corsiva", fontSize: '3.8rem', color: '#e2352d' }}>
-                                    Macc
+                                <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
+                                    <NavLink to="/Collections" style={{ textDecoration: 'none', color: 'gray' }}>
+                                        Shop
+                                    </NavLink>
                                 </Typography>
-                                <Typography align='center' style={{ fontFamily: "Monotype Corsiva", fontSize: '2.8rem', color: '#3A408C', fontWeight: 'bolder' }}>
-                                    Essentials
+
+
+                                <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
+                                    <NavLink to="/products" style={{ textDecoration: 'none', color: 'gray' }}>
+                                        Essentials
+                                    </NavLink>
+                                </Typography>
+
+                                <Box>
+
+                                    <Typography align='center' style={{ fontFamily: "Monotype Corsiva", fontSize: '3.8rem', color: '#e2352d' }}>
+                                        Macc
+                                    </Typography>
+                                    <Typography align='center' style={{ fontFamily: "Monotype Corsiva", fontSize: '2.8rem', color: '#3A408C', fontWeight: 'bolder' }}>
+                                        Essentials
+                                    </Typography>
+                                </Box>
+                                <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
+                                    Best Seller
+                                </Typography>
+                                <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
+                                    About us
                                 </Typography>
                             </Box>
-                            <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
-                                Best Seller
-                            </Typography>
-                            <Typography variant="h6" noWrap component="div" style={{ flexGrow: 2 }}>
-                                About us
-                            </Typography>
-                        </Box>
 
-                        <Box sx={{ flexGrow: 1 }} />
-                        <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-                            <IconButton
-                                size="large"
-                                edge="end"
-                                aria-label="account of current user"
-                                aria-controls={menuId}
-                                aria-haspopup="true"
-                                onClick={handleProfileMenuOpen}
-                                color="inherit"
-                            >
-                                <AccountCircle />
-                            </IconButton>
-                            <IconButton
-                                size="large"
-                                aria-label="show 17 new notifications"
-                                color="inherit"
-                            >
-                                <Badge badgeContent={17} color="error">
-                                    <NotificationsIcon />
-                                </Badge>
-                            </IconButton>
-                            <NavLink to="/cart" style={{ textDecoration: 'none', color: 'grey' }}>
-                                <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-                                    <Badge badgeContent={totalQuantity} color="error">
-                                        <LocalMallIcon />
+                            <Box sx={{ flexGrow: 1 }} />
+                            <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                                <IconButton
+                                    size="large"
+                                    edge="end"
+                                    aria-label="account of current user"
+                                    aria-controls={menuId}
+                                    aria-haspopup="true"
+                                    onClick={handleProfileMenuOpen}
+                                    color="inherit"
+                                >
+                                    <AccountCircle />
+                                </IconButton>
+                                <IconButton
+                                    size="large"
+                                    aria-label="show 17 new notifications"
+                                    color="inherit"
+                                >
+                                    <Badge badgeContent={17} color="error">
+                                        <NotificationsIcon />
                                     </Badge>
                                 </IconButton>
-                            </NavLink>
-                        </Box>
-                        <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-                            <IconButton
-                                size="large"
-                                aria-label="show more"
-                                aria-controls={mobileMenuId}
-                                aria-haspopup="true"
-                                onClick={handleMobileMenuOpen}
-                                color="inherit"
-                            >
-                                <MoreIcon />
-                            </IconButton>
-                        </Box>
-                    </Toolbar>
-                </AppBar>
-                {renderMobileMenu}
-                {renderMenu}
+                                <NavLink to="/cart" style={{ textDecoration: 'none', color: 'grey' }}>
+                                    <IconButton size="large" aria-label="show 4 new mails" color="inherit">
+                                        <Badge badgeContent={totalQuantity} color="error">
+                                            <LocalMallIcon />
+                                        </Badge>
+                                    </IconButton>
+                                </NavLink>
+                            </Box>
+                            <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+                                <IconButton
+                                    size="large"
+                                    aria-label="show more"
+                                    aria-controls={mobileMenuId}
+                                    aria-haspopup="true"
+                                    onClick={handleMobileMenuOpen}
+                                    color="inherit"
+                                >
+                                    <MoreIcon />
+                                </IconButton>
+                            </Box>
+                        </Toolbar>
+                    </AppBar>
+                    {renderMobileMenu}
+                    {renderMenu}
+                </Box>
             </Box>
         </>
     );

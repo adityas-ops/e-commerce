@@ -11,6 +11,7 @@ import Signin from './signIn/Signin';
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { useLayoutEffect } from 'react'
 // import Signup from './signUp/Signup';
+import Error from './Error';
 import Signup from './signIn/Signup';
 import Products from './Products/Products';
 import Checkout from './Checkout';
@@ -46,7 +47,7 @@ function App() {
               <Route path="/contact" element={<Contact />} />
               <Route path="/Cart" element={<Cart />} />
               <Route path="/Checkout" element={<Checkout />} />
-              <Route path="*" element={<h1>404</h1>} />
+              <Route path="*" element={<Error />} />
 
             </Routes>
             <Footer />

@@ -55,7 +55,7 @@ function Cart() {
                                     onMouseOver={() => setState({ raised: true, shadow: 3 })}
                                     onMouseOut={() => setState({ raised: false, shadow: 1 })}
                                     raised={state.raised} zDepth={state.shadow}
-                                    style={{ width: '250px', height: '340px', margin: '10px' }}>
+                                    style={{ width: '250px', height: '320px', margin: '10px' }}>
                                     <CardMedia
                                         style={{
                                             marginLeft: "auto",
@@ -75,9 +75,7 @@ function Cart() {
                                         </Typography>
                                     </CardContent>
                                     <CardActions style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
-                                        <NavLink to="/Checkout" style={{ textDecoration: 'none' }}>
-                                            <Button variant='contained' style={{ backgroundColor: '#3A408C', color: 'white' }}>Buy Now</Button>
-                                        </NavLink>
+
                                         <Button onClick={() => removeItem(product.id)} variant='contained' style={{ backgroundColor: '#3A408C', color: 'white' }}>Remove</Button>
                                     </CardActions>
                                 </Card>
@@ -85,29 +83,46 @@ function Cart() {
                         </Box>
                     </Grid>
 
-                    <Grid item xs={12} sm={6} md={4} lg={4} >
-                        <Card style={{ height: '300px', width: '300px', marginLeft: 'auto', marginRight: 'auto', marginTop: '20px' }}>
-                            <CardContent style={{ marginTop: '45px' }}>
-                                <Typography variant='h6' style={{ textAlign: 'center' }}>
-                                    Total Items
-                                </Typography>
-                                <Typography variant='h6' style={{ textAlign: 'center', color: 'red' }}>
-                                    {totalQuantity}
-                                </Typography>
-                                <Typography variant='h6' style={{ textAlign: 'center' }}>
-                                    Total Price
-                                </Typography>
-                                <Typography variant='h6' style={{ textAlign: 'center', color: 'red' }}>
-                                    {totalPrice.toFixed(2)}
-                                </Typography>
-                            </CardContent>
-                            <CardActions style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                                <NavLink to="/Checkout" style={{ textDecoration: 'none' }}>
-                                    <Button variant='contained' style={{ backgroundColor: '#3A408C', color: 'white' }}>Checkout</Button>
-                                </NavLink>
-                            </CardActions>
-                        </Card>
-                    </Grid>
+                    {
+                        totalQuantity > 0 ? (
+                            <Grid item xs={12} sm={6} md={4} lg={4} >
+                                <Card style={{ height: '300px', width: '300px', marginLeft: 'auto', marginRight: 'auto', marginTop: '20px' }}>
+                                    <CardContent style={{ marginTop: '45px' }}>
+                                        <Typography variant='h6' style={{ textAlign: 'center' }}>
+                                            Total Items
+                                        </Typography>
+                                        <Typography variant='h6' style={{ textAlign: 'center', color: 'red' }}>
+                                            {totalQuantity}
+                                        </Typography>
+                                        <Typography variant='h6' style={{ textAlign: 'center' }}>
+                                            Total Price
+                                        </Typography>
+                                        <Typography variant='h6' style={{ textAlign: 'center', color: 'red' }}>
+                                            {totalPrice.toFixed(2)}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                                        <NavLink to="/Checkout" style={{ textDecoration: 'none' }}>
+                                            <Button variant='contained' style={{ backgroundColor: '#3A408C', color: 'white' }}>Checkout</Button>
+                                        </NavLink>
+                                    </CardActions>
+                                </Card>
+                            </Grid>
+                        )
+                            : (
+                                <Grid item xs={12} sm={6} md={4} lg={4} >
+                                    <Card style={{ height: '300px', width: '300px', marginLeft: 'auto', marginRight: 'auto', marginTop: '20px' }}>
+                                        <CardContent style={{ marginTop: '45px' }}>
+                                            <Typography variant='h6' style={{ textAlign: 'center', color: 'grey' }}>
+                                                No Items in Cart
+                                            </Typography>
+                                            <CardMedia style={{ marginLeft: 'auto', marginRight: 'auto', marginTop: '20px', width: '150px', height: '150px', filter: 'invert(48%) sepia(0%) saturate(2476%) hue-rotate(86deg) brightness(120%) contrast(119%)' }} component="img" image="img/sad-face-icon.svg" title="Card" />
+
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+                            )
+                    }
 
                 </Grid>
             </Container>
